@@ -430,10 +430,11 @@ HomeSeerAccessory.prototype = {
                 var value = status.Devices[0].value;
 
                 this.log(this.name + ': getPowerState function succeeded: value=' + value);
-                if (value == 0)
-                    callback(null, 0);
+                if (value == this.offValue)
+                  callback(null, 0);
                 else
-                    callback(null, 1);
+                  callback(null, 1);
+
             }
         }.bind(this));
     },
